@@ -22,6 +22,8 @@ Changing the instantiator would require a change to the class code which, is bad
 
 ## Resources
 
+Youtube Explanation and Live Code: https://youtu.be/KYWgNJjRVXU
+
 https://en.wikipedia.org/wiki/Factory_method_pattern
 
 https://www.journaldev.com/1392/factory-design-pattern-in-java
