@@ -37,7 +37,7 @@ So we've identified we've got an issue and we've got a design pattern we want to
 
 Here's an UML example of our party management addon now using a Factory Method.
 
-
+![Image](https://i.imgur.com/y7qfRO7.png)
 
 Our Factory Method has `FindRole` that is designed to return a role to our `PartyManager` to be part of the `party`.
 Each of the 3 concrete class constructors ( `FindTank` `FindHealer` `FindDps `) override our `FindRole.addRole()` method and return a new object relative to the class that we're trying to find. 
@@ -46,7 +46,7 @@ What's interesting here is we can expand, for example, the `FindTank` class for 
 
 Additionally our 'Roles' all implement our `PartyMember` interface, allowing `PartyManager` to treat each object with consistency. This will allow `PartyManager.summonParty(party)` to summon every member that's within our party. Amazing!
 
-![Image](https://i.imgur.com/y7qfRO7.png)
+
 
 #### When to use
 
@@ -54,7 +54,7 @@ Additionally our 'Roles' all implement our `PartyMember` interface, allowing `Pa
 
 - Use the Factory Method when you want to provide users of your library or framework with a way to extend its internal components.
 
-   
+    
 
 | Pros                                                         | Cons                                                         |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
