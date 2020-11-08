@@ -37,7 +37,7 @@ So we've identified we've got an issue and we've got a design pattern we want to
 
 Here's an UML example of our party management addon now using a Factory Method.
 
-<iframe frameborder="0" style="width:100%;height:611px;" src="https://viewer.diagrams.net/?highlight=0000ff&edit=_blank&layers=1&nav=1&title=factory_method_01.drawio#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1-QqhCpFWKP3-oTEetvgFGVlugKrwaYgk%26export%3Ddownload"></iframe>
+
 
 Our Factory Method has `FindRole` that is designed to return a role to our `PartyManager` to be part of the `party`.
 Each of the 3 concrete class constructors ( `FindTank` `FindHealer` `FindDps `) override our `FindRole.addRole()` method and return a new object relative to the class that we're trying to find. 
@@ -46,7 +46,7 @@ What's interesting here is we can expand, for example, the `FindTank` class for 
 
 Additionally our 'Roles' all implement our `PartyMember` interface, allowing `PartyManager` to treat each object with consistency. This will allow `PartyManager.summonParty(party)` to summon every member that's within our party. Amazing!
 
-
+![Image](https://i.imgur.com/y7qfRO7.png)
 
 #### When to use
 
