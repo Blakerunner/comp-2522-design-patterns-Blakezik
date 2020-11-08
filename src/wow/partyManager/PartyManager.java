@@ -1,61 +1,53 @@
 package wow.partyManager;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 /**
  * The class Party manager.
  *
- * @version 2020
  * @author Blake Michalzik
+ * @version 2020
  */
 public class PartyManager {
     /**
-     * Main.
-     *
-     * @param args the args
+     * The Party.
      */
-    public static void main(final String[] args) {
-        final Scanner scan = new Scanner(System.in);
-        final ArrayList<PartyMember> party = new ArrayList<>();
-        final int partySize = 5;
+    final ArrayList<PartyMember> party = new ArrayList<>();
 
-        getMembers(partySize, party, scan);
-        System.out.println();
-
-        printMembers(party);
-        System.out.println();
-
-        summonMembers(party);
-        System.out.println();
-
-        actionMembers(party);
+    /**
+     * Build party.
+     */
+    public void buildParty() {
+        party.add(FindTank.addRole());
+        party.add(FindRole.addRole());
+        party.add(FindHealer.addRole());
+        party.add(FindDps.addRole());
+        party.add(FindDps.addRole());
     }
 
-    private static void getMembers(final int partySize,
-                                   final ArrayList<PartyMember> party,
-                                   final Scanner scan) {
-        System.out.println("Input a role to join your party.");
-        for (int i = 1; i < partySize + 1; i++) {
-            System.out.print(i + ": ");
-            party.add(RoleFactory.getRole(scan.nextLine()));
-        }
-    }
-
-    private static void printMembers(final ArrayList<PartyMember> party) {
+    /**
+     * Print party.
+     */
+    public void printParty() {
         System.out.println("Your party consists of:");
         for (PartyMember member : party) {
             System.out.println(member.getClass());
         }
     }
 
-    private static void summonMembers(final ArrayList<PartyMember> party) {
+    /**
+     * Summon party.
+     */
+    public void summonParty() {
         for (PartyMember member : party) {
             member.summon();
         }
     }
 
-    private static void actionMembers(final ArrayList<PartyMember> party) {
+    /**
+     * Action party.
+     */
+    public void actionParty() {
         for (PartyMember member : party) {
             if (member instanceof Tank) {
                 ((Tank) member).taunt();
@@ -67,5 +59,25 @@ public class PartyManager {
                 ((Dps) member).bigDamage();
             }
         }
+    }
+
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
+    public static void main(String[] args) {
+        PartyManager partyManager = new PartyManager();
+
+        partyManager.buildParty();
+        System.out.println();
+
+        partyManager.printParty();
+        System.out.println();
+
+        partyManager.summonParty();
+        System.out.println();
+
+        partyManager.actionParty();
     }
 }
