@@ -37,7 +37,7 @@ So we've identified we've got an issue and we've got a design pattern we want to
 
 Here's an UML example of our party management addon now using a Factory Method.
 
-![Image](https://imgur.com/y7qfRO7)
+![Image](https://i.imgur.com/y7qfRO7.png)
 
 Our Factory Method has `FindRole` that is designed to return a role to our `PartyManager` to be part of the `party`.
 Each of the 3 concrete class constructors ( `FindTank` `FindHealer` `FindDps `) override our `FindRole.addRole()` method and return a new object relative to the class that we're trying to find. 
